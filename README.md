@@ -1,11 +1,10 @@
-- Create Data folder
-- Create venv, download requirements from txt file
-- Create .env, add Alpha Vantage API
+1. Create Data folder
+2. Create venv, download requirements from txt file
+3. Create .env, add Alpha Vantage API
 
-- Backtesting data API: Alpha Vantage
-- Brokerage API: Alpaca Markets
-
-- Created by Isaac Porat
+- *Backtesting data API: Alpha Vantage*
+- *Brokerage API: Alpaca Markets*
+- *Created by Isaac Porat*
 
 - Features list
 - [ ] Create and backtest algorithm
