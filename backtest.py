@@ -7,7 +7,8 @@ ALPHA_VANTAGE_API_KEY = os.getenv('ALPHA_VANTAGE_API_KEY')
 
 class Backtest():
 
-  def __init__(self, alphaVantageAPIKEY: str, symbol: str, interval: str):
+  def __init__(self, alphaVantageAPIKEY: str, symbol: str, interval: str, accountBalance: int):
+    self.accountBalance = accountBalance
     self.openValue: float = None
     self.highValue: float = None
     self.lowValue: float = None
@@ -16,6 +17,16 @@ class Backtest():
     self.alphaVantageAPIKEY: str = alphaVantageAPIKEY
     self.symbol: str = symbol
     self.interval: str = interval
+    self.riskInDollarFormat: float = None
+    self.marketBuyPrice: float = None
+    self.marketSellPrice: float = None
+
+  def marketBuyOrder(self, riskPercentage: float, slippage: float):
+     self.riskInDollarFormat: float = riskPercentage * self.accountBalance
+     self.marketBuyPrice: float = self.closeValue * (1 + slippage) # Assuming buy at close price plus slippage
+
+  def marketSellOrder(self, slippage: float):
+     self.sellPrice = self.closeValue * (1 + slippage) # Assuming sell at close price plus slippage
 
   def loadData(self):
     if os.path.exists(f'Data/{self.symbol}-{self.interval}.json'):
