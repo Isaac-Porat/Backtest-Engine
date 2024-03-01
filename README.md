@@ -7,7 +7,7 @@
 - *Created by Isaac Porat*
 
 - Features list
-- [ ] Create and backtest algorithm
+- [ ] Order book
 - [ ] Add support for longer backtesting ranges 
 - [ ] Research corporate Hedge Fund backtesting tools to add to backtesting engine
 - [ ] Add front end website support
