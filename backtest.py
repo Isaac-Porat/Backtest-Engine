@@ -31,6 +31,9 @@ class Backtest():
 
       if response.status_code == 200:
         tradingData: dict = response.json()
+
+        with open(f'Data/{self.symbol}-{self.interval}.json', 'w') as file:
+          json.dump(tradingData, file)
       else:
         raise Exception('Failed to fetch data')
 
